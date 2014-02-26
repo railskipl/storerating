@@ -6,7 +6,7 @@ class BusinessUser
   belongs_to :user
   field :user_id, type: String
 
-
+#Override Methods from Gem
   def rate(stars, user, dirichlet_method=false)
       if can_rate? user
         rates.create! do |r|
