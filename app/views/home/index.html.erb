@@ -1,0 +1,20 @@
+<div class="container" style="margin-top:60px">
+<div class="shadow" style="text-align:center">
+<div>
+<h2>Signup As</h2>
+<p>&nbsp;</p>
+</div>
+<form>
+<%= link_to "Business",new_user_registration_path(:type => "Business"),:class=>"btn btn-large",:style=>"margin:10px 20px;"%>
+
+
+<%= link_to "Customer",new_user_registration_path,:class=>"btn btn-large"%>
+
+<h4>Or already a member</h4>
+		
+		<%= link_to "Login",new_user_session_path,:class=>"btn btn-primary"%>
+		
+
+
+</div>
+</div>

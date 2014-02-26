@@ -1,0 +1,43 @@
+<h1>Listing accounts</h1>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-bottom:20px">
+<table>
+  <tr>
+    <th>Photo</th>
+    <th>Email</th>
+    <th>Password</th>
+    <th>Zipcode</th>
+    <th>City</th>
+    <th>Country</th>
+    <th>Phone_no</th>
+    <th>Vegetarian</th>
+    <th>Choose_one</th>
+    <th>Sex</th>
+    <th>How may business locations do you shop at in a month</th>
+    <th>How much do you spend on  average per month at the business</th>
+    
+  </tr>
+
+<% resources.to_a.each do |resource| %>
+  <tr>
+    <td><%= resource.photo %></td>    
+    <td><%= resource.email %></td>
+    <td><%= resource.password %></td>
+    <td><%= resource.zipcode %></td>
+    <td><%= resource.city %></td>
+    <td><%= resource.country %></td>
+    <td><%= resource.phone_no %></td>
+    <td><%= resource.vegetarian %></td>
+    <td><%= resource.choose_one %></td>
+    <td><%= resource.sex  %></td>
+    <td><%= resource.business_location_shop %></td>
+    <td><%= resource.average_per_month  %></td>
+    <td><%= link_to 'Show', resource %></td>
+    <td><%= link_to 'Edit', edit_resource_path(resource) %></td>
+    <td><%= link_to 'Destroy', resource, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Account', new_resource_path %>

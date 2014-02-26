@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  free: 
+  basic: MyString
+  advanced_advertising: MyString
+  professional_marketing: MyString
+
+two:
+  free: 
+  basic: MyString
+  advanced_advertising: MyString
+  professional_marketing: MyString

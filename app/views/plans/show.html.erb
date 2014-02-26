@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Free:</b>
+  <%= @plans.free %>
+</p>
+
+<p>
+  <b>$250:</b>
+  <%= @plans.basic %>
+</p>
+
+<p>
+  <b>$500:</b>
+  <%= @plans.advanced_advertising %>
+</p>
+
+<p>
+  <b>$1000:</b>
+  <%= @plans.professional_marketing %>
+</p>
+
+
+<%= link_to 'Edit', edit_plan_path(@plans) %> |
+<%= link_to 'Back', plans_path %>

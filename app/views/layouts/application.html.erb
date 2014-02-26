@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Storerating</title>
+  <%= stylesheet_link_tag   "bootstrap","style"%>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<%= render 'shared/header' %>
+
+<br/>
+<div style = "position:relative;top:40px;left:100px;">
+  <% if user_signed_in? %>
+  <p>
+    Signed in as <%= current_user.email %>. Not you? </p>
+    <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+  
+  <% end %>
+</div>
+
+
+
+<%= yield %>
+
+<%= render 'shared/footer' %>
+
+
+
+
+</body>
+</html>

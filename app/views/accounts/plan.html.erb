@@ -1,0 +1,6 @@
+<div class="container" style="margin-top:60px">
+	<% if @accounts.free? %>
+	<%= link_to "OK",dashboard_path,:class=>"btn btn-primary"%>
+<% else %>
+Sorry, you have no messages
+<% end %>
