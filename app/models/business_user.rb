@@ -5,9 +5,11 @@ class BusinessUser
   letsrate_rateable
   belongs_to :user
   field :user_id, type: String
+  field :avg, type: Float ,default:0.0
 
 #Override Methods from Gem
   def rate(stars, user, dirichlet_method=false)
+
       if can_rate? user
         rates.create! do |r|
           r.stars = stars
@@ -24,12 +26,15 @@ class BusinessUser
     end
 
      def update_rate_average(stars)
+       b = BusinessUser.find(id)
       if average.nil?
         RatingCache.create! do |avg|
           avg.cacheable_id = self.id
           avg.cacheable_type = self.class.name
           avg.avg = stars
           avg.qty = 1
+          b.avg = stars
+          b.save
         end
       else
         a = average
@@ -38,6 +43,8 @@ class BusinessUser
         avg = str.flatten.inject(:+)/str.flatten.length
         a.qty = rates.count
         a.avg = avg
+        b.avg = avg
+        b.save
         a.save!(validate: false)
       end
     end

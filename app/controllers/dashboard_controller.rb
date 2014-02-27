@@ -18,7 +18,7 @@ class DashboardController < ApplicationController
     user_id.each do |i|
       @business_user << BusinessUser.find_by(user_id: i) 
     end
-
+    @business_user = @business_user.sort_by{|e| -e[:avg] } 
     # @ankit = @business.near(:coordinates => current_user.coordinates)
   end
 

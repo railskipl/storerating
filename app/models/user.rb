@@ -89,7 +89,7 @@ class User
    role = Role.find_by(name: "business")
 
    if role.id == self.role_id
-     BusinessUser.find_or_create_by(user_id: self.id)
+     b = BusinessUser.find_or_create_by(user_id: self.id)
    end
  end
   ## Confirmable
