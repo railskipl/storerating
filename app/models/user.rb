@@ -9,6 +9,8 @@ class User
   letsrate_rater
   geocoded_by :geoaddress  
   after_validation :geocode
+  after_save :business_c               
+
   has_many :plans
   has_many :accounts
   has_many :ratings_given, :class_name => 'Rate'
@@ -74,11 +76,10 @@ class User
 
   has_mongoid_attached_file :photo,:styles => { :thumb => "140x100", :medium => "480x270>", :profile => "130x126"}
                    
-  after_validation :business_c               
   belongs_to :role
 
-  has_one :business_user
-
+  has_one :business_user ,:dependent => :destroy
+  validates_presence_of :location,:city,:address
 
  def geoaddress
   [address,city,location].compact.join(', ')

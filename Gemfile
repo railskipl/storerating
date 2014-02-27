@@ -12,8 +12,7 @@ gem 'devise'
 gem 'paperclip'
 gem 'cancan'
 gem 'mongoid-letsrate'
-
-gem "geocoder"
+gem 'geocoder', :git => 'git://github.com/alexreisner/geocoder.git', :branch => 'fix_mongoid_nearbys'
 gem "mongoid-paperclip", :require => "mongoid_paperclip"
 gem 'aws-sdk', '~> 1.3.4'
 gem 'country_select'

@@ -61,10 +61,9 @@
 			<div class="pt-table">	
 				<div class="pt-body">
 
-  
-  		 <% BusinessUser.all.each do |b|%>
+  		 <%  @business_user.each do |b|%>
 		  <%= rating_for b %>	
-		  <%= b.user.business_name rescue nil %>
+		  <%= b.user.email rescue nil %>
 		 <% if current_user.follower_of?(b.user) %>
      	  <%= link_to "UnFollow" ,unfollow_path(:business => b.user) %>
  		 <% else %>
