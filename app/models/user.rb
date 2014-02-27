@@ -9,7 +9,7 @@ class User
   letsrate_rater
   geocoded_by :geoaddress  
   after_validation :geocode
-  after_save :business_c               
+  after_save :business_c    #creating businessuser with user id for ratings purpose            
 
   has_many :plans
   has_many :accounts
