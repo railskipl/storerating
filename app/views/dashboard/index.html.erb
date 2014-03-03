@@ -1,4 +1,22 @@
-
+<script>
+      $(document).ready(function() {
+        $('.nav-toggle').click(function(){
+          //get collapse content selector
+          var collapse_content_selector = $(this).attr('href');         
+          
+          //make the collapse content to be shown or hide
+          var toggle_switch = $(this);
+          $(collapse_content_selector).toggle(function(){
+            if($(this).css('display')=='none'){
+              toggle_switch.html('Add Comment');//change the button label to be 'Show'
+            }else{
+              toggle_switch.html('Hide Comment');//change the button label to be 'Hide'
+            }
+          });
+        });
+        
+      }); 
+    </script>
 <body>
 
 <div class="navbar navbar-inverse navbar-fixed-top">
@@ -41,7 +59,7 @@
               <% if current_user.follower_of?(b.user) %>
                   <%= link_to "UnFollow" ,unfollow_path(:business => b.user), :class => "btn btn-warning btn-mini follow_button"  %>
               <% else %>
-                  <%= link_to "Follow" ,follow_path(:business => b.user), :class => "btn btn-warning btn-mini follow_button"  %>
+                  <%= link_to "Follow" ,follow_path(:business => b.user), :class => "btn btn-warning btn-mini follow_button" %>
               <% end %>
             </div>
           <% end %>
@@ -66,40 +84,33 @@
         
         <div class="shadow2" style="margin-top:10px">
          <div style="margin-bottom:10px">
-          <a href="#" class="btn btn-primary">Create Forums</a>       
+          <a href="#" class="btn btn-primary">County Wall</a>
         </div>
-          
-            <div class="forum_row2">Lorem ipsum dolor sit amet, consec tetur adipis cing elit.
+            <% @forums.each do |forum|%>
+     
+            <div class="forum_row2">
+            <h4><%= forum.name%></h4><div><%= forum.content%>
             
+            <div>comments (<%= forum.comments.count(params[:comment]) %>)</div>
+
+
+<% if forum.comments.size > 0 %> 
+  
+<% for comment in forum.comments %>
+    <p><%= comment.content %> by  
+    <%= comment.name %></p> 
+  <% end %>
+<% end %>
               <div class="add_comment">
               <button href="#collapse1" class="nav-toggle btn btn-warning btn-mini">Add Comment</button>
               </div>
               <div id="collapse1" style="display:none">
-              <p>
-                <input type="text" value="Name">
-               <textarea>Comment</textarea>
-                <input type="button" value="Submit" class="btn">
-              </p>
+              <%= render "comments/form" ,:forum => forum %>
             </div>
             
-            </div>
-            
+            </div><hr/>
+            <% end %>
 
-            
-            <div class="forum_row2">Lorem ipsum dolor sit amet, consec tetur adipis cing elit.
-            
-              <div class="add_comment">
-              <button href="#collapse2" class="nav-toggle btn btn-warning btn-mini">Add Comment</button>
-              </div>
-              <div id="collapse2" style="display:none">
-              <p>
-                <input type="text" value="Name">
-               <textarea>Comment</textarea>
-                <input type="button" value="Submit" class="btn">
-              </p>
-            </div>
-            
-            </div>
           
         </div>
         </div>
@@ -120,4 +131,3 @@
 </html>
 
 
-                  
