@@ -18,7 +18,7 @@
 
             <li><% if controller.controller_name == 'rating_flags' %> <%= link_to "Flag Ratings", admin_rating_flags_path, :class=>"active" %> <% else %> <%= link_to "Flag Ratings", admin_rating_flags_path %> <% end %></li>
             <li>      <%= link_to "Sign Out", destroy_admin_session_path,:method => :delete %>
-</li>
+            </li>
             </ul>
 
             <% end %>
