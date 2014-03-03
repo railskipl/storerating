@@ -9,7 +9,21 @@
           <a href="./index.html" class="brand">Store Rating</a>
          
           <div class="nav-collapse collapse">
-            
+            <% if current_user.nil? %>
+            <% if admin_signed_in? %>
+            <ul class="nav">
+            <li><% if controller.controller_name == 'events' %> <%= link_to "Events", admin_events_path, :class=>"active" %> <% else %> <%= link_to "Events", admin_events_path %> <% end %></li>
+
+            <li><% if controller.controller_name == 'massmails' %> <%= link_to "Massmails", admin_massmails_path, :class=>"active" %> <% else %> <%= link_to "Massmails", admin_massmails_path %> <% end %></li>
+
+            <li><% if controller.controller_name == 'rating_flags' %> <%= link_to "Flag Ratings", admin_rating_flags_path, :class=>"active" %> <% else %> <%= link_to "Flag Ratings", admin_rating_flags_path %> <% end %></li>
+            <li>      <%= link_to "Sign Out", destroy_admin_session_path,:method => :delete %>
+            </li>
+            </ul>
+
+            <% end %>
+            <% end %>
+
           </div>
         </div>
       </div>

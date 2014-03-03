@@ -1,0 +1,63 @@
+
+<div class="container" style="margin-top:60px">
+  
+  <div id="content">
+
+    <div class="price-chart">
+
+      <div class="pt-table">
+        <div class="pt-body">
+
+          <table width="100%" border="1px">
+            <tr>
+              <td>
+                <table width="100%">
+
+
+                  <% @business_user.to_a.each do |b|%>
+                      <tr>
+                        <td><%= link_to b.user.business_name , "/business/#{b.user.id}" %></td>
+                        <td><%= rating_for b %></td>
+                       <td> <%= flag(b) %></td>
+                        <% if current_user.follower_of?(b.user) %>
+                            <td><%= link_to "UnFollow" ,unfollow_path(:business => b.user) %></td>
+                        <% else %>
+                            <td><%= link_to "Follow" ,follow_path(:business => b.user) %></td>
+                        <% end %>
+                      </tr>
+                  <% end %>
+                </table>
+              </td>
+
+              <td>
+               <%= link_to 'New Forum', new_forum_path %> 
+
+              </td>
+            </tr>
+          </table>
+
+        </div>
+
+      </div>
+    </div>
+
+    <div>
+
+    </div>
+
+
+  </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+

@@ -6,6 +6,8 @@ class DashboardController < ApplicationController
     role_id = Role.find_by(name: "business").id
     user_role = Role.find_by(name: "customer").id
     @business = User.where("role_id" => role_id)
+    @rating_flag = RatingFlag.find_by(user_id: current_user.id) rescue nil
+
     #Fetch Nearby Locations
     if current_user.to_coordinates.blank?
      user = User.near([0,0],10000)
