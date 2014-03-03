@@ -70,11 +70,8 @@
                   <% @business_user.to_a.each do |b|%>
                       <tr>
                         <td><%= link_to b.user.business_name , "/business/#{b.user.id}" %></td>
-                        <% if RatingFlag.find_by(user_id: b.user.id).status %>
                         <td><%= rating_for b %></td>
-                        <% else %>
-                        <td><%= rating_for b %></td>
-                        <% end %>
+                       <td> <%= flag(b) %></td>
                         <% if current_user.follower_of?(b.user) %>
                             <td><%= link_to "UnFollow" ,unfollow_path(:business => b.user) %></td>
                         <% else %>

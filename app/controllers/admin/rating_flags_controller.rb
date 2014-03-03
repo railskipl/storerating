@@ -6,7 +6,7 @@ layout 'admin'
   end
 
   def create
-  	RatingFlag.create(user_id: current_user.id)
+  	RatingFlag.create(user_id: current_user.id, business_user_id: params["business"])
   	redirect_to :back
   end
 

@@ -8,22 +8,10 @@
 </head>
 <body>
 <%= render 'shared/header' %>
+
 <br/>
 <div class="container" style="margin-top:60px">
 
-  <% if admin_signed_in? %>
-      <%= link_to "Sign Out", destroy_admin_session_path,:method => :delete %>
-  <% else %>
-      <%= link_to "Sign In", new_admin_session_path %> &nbsp;
-  <% end %>
-
-
-
-  <li><% if controller.controller_name == 'events' %> <%= link_to "Events", admin_events_path, :class=>"active" %> <% else %> <%= link_to "Events", admin_events_path %> <% end %></li>
-
-  <li><% if controller.controller_name == 'massmails' %> <%= link_to "Massmails", admin_massmails_path, :class=>"active" %> <% else %> <%= link_to "Massmails", admin_massmails_path %> <% end %></li>
-
-    <li><% if controller.controller_name == 'rating_flags' %> <%= link_to "Flag Ratings", admin_rating_flags_path, :class=>"active" %> <% else %> <%= link_to "Flag Ratings", admin_rating_flags_path %> <% end %></li>
 
 
 </div>

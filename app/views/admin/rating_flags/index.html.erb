@@ -1,14 +1,24 @@
+<div class="container" style="margin-top:60px">
+<div class="shadow" style="text-align:center">
+<div>
+
+<p>&nbsp;</p>
+</div>
+
 <table>
 <tr>
-	<td>Busines </td>
+	<td>Business </td>
 	<td>Ratings</td>
 	<td>Status</td>
 </tr>
 <% @rating_flags.each do |r| %>
 <tr>
-	<td><%= r.user.business_name %></td>
-	<td><%= rating_for r.user.business_user %></td>
+	<td><%= r.business_user.user.business_name %></td>
+	<td><%= rating_for r.business_user %></td>
 	<td><%= link_to format_boolean(r.status?), {:controller => 'admin/rating_flags', :action => 'status', :id => r.id} %></td>
 </tr>
 <% end %>
 </table>
+
+</div>
+</div>
