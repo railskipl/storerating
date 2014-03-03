@@ -58,7 +58,8 @@
                   <label class="control-label" for="form-field-2"><%= f.label :country %></label>
                   <div class="controls">
                     <label>
-                       <%= f.select(:location,Country.all.map {|country| [ country,country ] } ,:prompt =>"Select Country" ) %>
+                      
+                    <%= f.select(:location,Country.all.map {|country| [ country.name,country.name ] } ,:prompt =>"Select Country" ) %>
                     </label>
                   </div>
                 </div>

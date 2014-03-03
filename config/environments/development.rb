@@ -1,15 +1,15 @@
 Storerating::Application.configure do
   
-  
-  # config.after_initialize do
-  # ActiveMerchant::Billing::Base.mode = :test
-  # paypal_options = {
-    # :login => "seller_ntest_api1.gmail.com",
-    # :password => "1392122027",
-    # :signature => "AFcWxV21C7fd0v3bYYYRCpSSRl31ABqNIRPCxoa9T4K.DHlBtwg-AKhU"
-  # }
-  # ::STANDARD_GATEWAY = ActiveMerchant::Billing::PaypalGateway.new(paypal_options)
-  # ::EXPRESS_GATEWAY = ActiveMerchant::Billing::PaypalExpressGateway.new(paypal_options)
+#   require "active_merchant"
+#   config.after_initialize do
+#   ActiveMerchant::Billing::Base.mode = :test
+#   paypal_options = {
+#     :login => "seller_ntest_api1.gmail.com",
+#     :password => "1392122027",
+#     :signature => "AFcWxV21C7fd0v3bYYYRCpSSRl31ABqNIRPCxoa9T4K.DHlBtwg-AKhU"
+#   }
+#   ::STANDARD_GATEWAY = ActiveMerchant::Billing::PaypalGateway.new(paypal_options)
+#   ::EXPRESS_GATEWAY = ActiveMerchant::Billing::PaypalExpressGateway.new(paypal_options)
 # end
 
 
@@ -37,11 +37,11 @@ Storerating::Application.configure do
   config.action_dispatch.best_standards_support = :builtin
 
   # Raise exception on mass assignment protection for Active Record models
-  config.active_record.mass_assignment_sanitizer = :strict
+  # config.active_record.mass_assignment_sanitizer = :strict
 
   # Log the query plan for queries taking more than this (works
   # with SQLite, MySQL, and PostgreSQL)
-  config.active_record.auto_explain_threshold_in_seconds = 0.5
+  # config.active_record.auto_explain_threshold_in_seconds = 0.5
 
   # Do not compress assets
   config.assets.compress = false

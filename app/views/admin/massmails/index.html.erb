@@ -1,6 +1,14 @@
+<table class="table" border="1" cellpadding="10">
 
-<% @massmails.to_a.each do |massmail| %>
+<tr>
+<th>Email</th>
+<th>Subject</th>
+<th>Description</th>
+<th>Choosen_data</th>
+<th colspan=1>Action</th>
+</tr>
   <tr>
+  	<% @massmails.to_a.each do |massmail| %>
     <td><%= massmail.email %></td>
     <td><%= massmail.subject %></td>
    <td><%= massmail.description %></td>

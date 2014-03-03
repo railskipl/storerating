@@ -2,7 +2,11 @@ class DashboardController < ApplicationController
   layout 'application'
 
   def index
+
     @forums = Forum.all
+
+    @events = Event.all.to_a
+
     role_id = Role.find_by(name: "business").id
     user_role = Role.find_by(name: "customer").id
     @business = User.where("role_id" => role_id)
@@ -37,8 +41,8 @@ class DashboardController < ApplicationController
 
   def follow
     user = User.find_by(_id: params["business"])
-    current_user.follow(user)
-    redirect_to :back
+     current_user.follow(user)
+     redirect_to :back
   end
 
   def unfollow

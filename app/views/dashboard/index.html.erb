@@ -59,7 +59,7 @@
               <% if current_user.follower_of?(b.user) %>
                   <%= link_to "UnFollow" ,unfollow_path(:business => b.user) %>
               <% else %>
-                  <%= link_to "Follow" ,follow_path(:business => b.user), :class => "btn btn-warning btn-mini follow_button"  %>
+                  <%= link_to "Follow" ,follow_path(:business => b.user), :class => "btn btn-warning btn-mini follow_button" %>
               <% end %>
             </div>
           <% end %>
@@ -67,46 +67,56 @@
         </div>
               <div class="span4 offset1">
         
-          <div style="margin-bottom:10px">
           
-        <div class="shadow2">
+        
+          <div class="shadow2">
           <h3>Business Events</h3>
           
-          <div class="forum_row">Lorem ipsum dolor sit amet, consec tetur adipis cing elit.</div>
-          <div class="forum_row">Lorem ipsum dolor sit amet, consec tetur adipis cing elit.</div>
-          <div class="forum_row">Lorem ipsum dolor sit amet, consec tetur adipis cing elit.</div>
-          <div class="forum_row">Lorem ipsum dolor sit amet, consec tetur adipis cing elit.</div>
-          </div>
-        
-        
-        <div class="shadow2" style="margin-top:10px"> 
-          <%=link_to "County Wall", new_forum_path,:class => "btn btn-primary"%> <br/><br/>      
-          <% @forums.each do |forum|%>
-          <div class="forum_row"><h3><%= forum.name%></h3><br/><div><%= forum.content%></div>
-          
-        <div class="forum_row2"> 
-          
-             <div class="add_comment">
-              <button href="#collapse<%= forum.id%>" class="nav-toggle btn btn-warning btn-mini">Add Comment</button>
-              </div>
-              <div id="collapse<%= forum.id%>" style="display:none">
-              <p>
-                <input type="text" value="Name">
-               <textarea>Comment</textarea>
-                <input type="button" value="Submit" class="btn">
-              </p> 
-            
-            </div>
-            </div>   
+          <% @events.to_a.each do |event| %>
+            <% if event.status == true %>
+          <div class="forum_row">
+           <h6><%= event.event_name %></h6>
+           <%= event.description %></br>
+             <% end %>
           <% end %>
-            
-
+        </div>
         
+        
+        <div class="shadow2" style="margin-top:10px">
+         <div style="margin-bottom:10px">
+          <a href="#" class="btn btn-primary">County Wall</a>
+        </div>
+            <% @forums.each do |forum|%>
+     
+            <div class="forum_row2">
+            <h4><%= forum.name%></h4><div><%= forum.content%>
+            
+            <div>comments (<%= forum.comments.count(params[:comment]) %>)</div>
+
+
+<% if forum.comments.size > 0 %> 
+  
+<% for comment in forum.comments %>
+    <p><%= comment.content %> by  
+    <%= comment.name %></p> 
+  <% end %>
+<% end %>
+              <div class="add_comment">
+              <button href="#collapse1" class="nav-toggle btn btn-warning btn-mini">Add Comment</button>
+              </div>
+              <div id="collapse1" style="display:none">
+              <%= render "comments/form" ,:forum => forum %>
+            </div>
+            
+            </div><hr/>
+            <% end %>
+
           
         </div>
         </div>
             </div>
-                       
+                
+                
                 
 
 </div>
@@ -121,4 +131,3 @@
 </html>
 
 
-                  

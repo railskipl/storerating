@@ -59,6 +59,7 @@ Storerating::Application.routes.draw do
     resources :events
     resources :massmails
     resources :rating_flags
+    resources :reviews
   end
 
   root :to => 'home#index'

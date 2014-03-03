@@ -8,12 +8,6 @@ def index
 end
 
 
-def destroy
-    @event = Event.find(params[:id])
-    @event.destroy
-    redirect_to :back
-end
-
  def status
 	@event = Event.find(params[:id])
 	@event.status = !@event.status?
