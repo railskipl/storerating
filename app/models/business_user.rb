@@ -50,8 +50,13 @@ class BusinessUser
   end
 
   def can_rate?(user)
-    r =   Rate.find_by(rater_id: user.id,rateable_id: id).nil? rescue nil
-    r.nil?
+    role = Role.find_by(name: "business")
+    if user.role_id == role.id
+      false 
+    else
+     r =   Rate.find_by(rater_id: user.id,rateable_id: id).nil? rescue nil
+     r.nil?
+    end
     # user.ratings_given.where(rateable_id: id, rateable_type: self.class.name).size.zero?
   end
 

@@ -23,6 +23,9 @@
 
   <li><% if controller.controller_name == 'massmails' %> <%= link_to "Massmails", admin_massmails_path, :class=>"active" %> <% else %> <%= link_to "Massmails", admin_massmails_path %> <% end %></li>
 
+    <li><% if controller.controller_name == 'rating_flags' %> <%= link_to "Flag Ratings", admin_rating_flags_path, :class=>"active" %> <% else %> <%= link_to "Flag Ratings", admin_rating_flags_path %> <% end %></li>
+
+
 </div>
 
 <%= yield %>

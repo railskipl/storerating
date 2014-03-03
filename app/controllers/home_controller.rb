@@ -15,4 +15,8 @@ def dashboard
   
 end
 
+def ratings
+   @rating_flag = RatingFlag.find_by(user_id: current_user.id)
+end
+
 end

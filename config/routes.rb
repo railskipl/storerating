@@ -1,4 +1,5 @@
 Storerating::Application.routes.draw do
+
   post '/rate' => 'rater#create', :as => 'rate'
 
   resources :events
@@ -7,6 +8,8 @@ Storerating::Application.routes.draw do
 
   resources  :massmails
   resources  :reviews
+
+
 
  resources :forums do
     resources :topics do
@@ -38,6 +41,7 @@ Storerating::Application.routes.draw do
   
   devise_for :users,:controllers => {:registrations => "registrations"}
   get '/dashboard' => "home#dashboard"
+  get '/ratings' => "home#ratings"
   get '/business' => "home#business"
   get '/plans' => "home#plans"
 
@@ -56,8 +60,9 @@ Storerating::Application.routes.draw do
 
  namespace :admin do 
     match '/dashboard' => "dashboard#index"
-        resources  :events
-        resources :massmails
+    resources :events
+    resources :massmails
+    resources :rating_flags
   end
 
   root :to => 'home#index'
