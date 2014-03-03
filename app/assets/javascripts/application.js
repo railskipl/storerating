@@ -18,14 +18,20 @@ $( document ).ready(function() {
     $("#follower_email").css("display","none");
     $("#massmail_choose_one_followers").click(function(e){
         $("#customer_email").css("display","none");
+        $("#select_customer").css("display","none");
         $("#follower_email").css("display","block");
+        $("#select_follower").css("display","block");
         $("#customer_email").val("");
     });
     $("#massmail_choose_one_samecounty").click(function(e){
         $("#follower_email").css("display","none");
+        $("#select_follower").css("display","none");
         $("#customer_email").css("display","block");
+        $("#select_customer").css("display","block");
         $("#follower_email").val("");
     });
 });
+
+
 
 

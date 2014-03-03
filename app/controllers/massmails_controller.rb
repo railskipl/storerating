@@ -24,9 +24,8 @@ class MassmailsController < ApplicationController
       flash[:alert] = "You are Not Authorized for Mass Mailing."
       redirect_to :back
     end
-
   end
-
+  
   def create
     params[:massmail][:email].reject!(&:empty?)
     if params[:massmail][:email].empty?

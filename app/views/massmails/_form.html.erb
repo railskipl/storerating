@@ -1,3 +1,51 @@
+<script type='text/javascript'>//<![CDATA[ 
+jQuery(window).load(function(){
+
+jQuery('input[name="select_customer"]').change(
+    function() {
+
+        if (jQuery(this).is(':checked')) {
+           
+            jQuery('#customer_email').trigger('change').find('option').prop('selected', true)
+        }
+        else {
+              jQuery('#customer_email').trigger('change').find('option').prop('selected', false)
+        }
+    });
+
+jQuery('#customer_email').change(
+    function(){
+        jQuery(this).find('option:selected').each(
+            function(){
+                console.log(jQuery(this).index());
+            });
+    });
+
+
+ jQuery('input[name="select_follower"]').change(
+    function() {
+
+        if (jQuery(this).is(':checked')) {
+           
+            jQuery('#follower_email').trigger('change').find('option').prop('selected', true)
+        }
+        else {
+              jQuery('#follower_email').trigger('change').find('option').prop('selected', false)
+        }
+    });
+
+jQuery('#follower_email').change(
+    function(){
+        jQuery(this).find('option:selected').each(
+            function(){
+                console.log(jQuery(this).index());
+            });
+    });
+});//]]>  
+
+</script>
+
+
 <div class="container" style="margin-top:60px">
   <%= form_for(@massmail) do |f| %>
       <% if @massmail.errors.any? %>
@@ -20,6 +68,9 @@
       </div></br>
       <div class="field">
         <%= f.label :email %><br />
+        Select all <input type="checkbox" id="select_customer" name="select_customer" /> 
+        <input type="checkbox" id="select_follower" name="select_follower" style="display:none" />
+        <br />
         <%= f.select :email, @followers.collect {|x| [x.email, x.email]}, {:prompt => true }, :id => "follower_email", :multiple => true  %>
         <%= f.select :email, @customers.collect {|x| [x.email, x.email]}, {:prompt => true }, :id => "customer_email", :multiple => true  %>
       </div>
