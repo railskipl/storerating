@@ -6,7 +6,11 @@ class DashboardController < ApplicationController
     user_role = Role.find_by(name: "customer").id
     @business = User.where(role_id: role_id)
     #Fetch Nearby Locations
+    if current_user.to_coordinates.blank?
+    user = User.near([0,0],10000)
+    else
     user = User.near(current_user.to_coordinates,10)
+    end 
     #Rejecting user which is having roles Customers
     business_user = user.reject {|i| i.role_id == user_role }
     #Fetching business user ids
@@ -18,6 +22,7 @@ class DashboardController < ApplicationController
     user_id.each do |i|
       @business_user << BusinessUser.find_by(user_id: i) 
     end
+
     @business_user = @business_user.sort_by{|e| -e[:avg] } 
     # @ankit = @business.near(:coordinates => current_user.coordinates)
   end
