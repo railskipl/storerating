@@ -5,6 +5,8 @@
 		<li><%= link_to "Sign out",destroy_user_session_path,method: :delete %></li>
 		<li><%= link_to 'Events', events_path %></li>
 		<li><%= link_to 'Plans', plans_path %></li>
+		<li><%= link_to 'Massmail', new_massmail_path %></li>
+		<li><%= link_to 'Reviews', reviews_path %></li>
 		 <% else %>
 		<%= link_to "Login",new_user_session_path,:class=>"btn btn-primary"%>
 <% end %> 

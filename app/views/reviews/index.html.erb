@@ -1,0 +1,20 @@
+<div class="container" style="margin-top:60px">
+  <ul>
+    <% @reviews.to_a.each do |review| %>
+        <%= review.body%>
+        <% if @level >= 2  %>
+            <h5>Reply</h5>
+            <%= form_tag({:action => 'post_reply'},:method=>"post",:remote => true ) do %>
+                <%= hidden_field_tag :replier_id, review.reviewer_id.to_s %>
+                <%= hidden_field_tag :review_id, review.id.to_s %>
+                <p>
+                  <%= text_area_tag :body,nil,:class=>"comment_tf2",:rows=>"4" ,:style => "width:365px", :maxlength => 2000 %>
+                </p>
+                <%= submit_tag "Reply", :style=>"margin-left:100px",:class=>"submit_btn"%>
+            <% end %>
+        <% end %>
+        </br>
+    <% end %>
+    <%= link_to "Back",plans_path%>
+  </ul>
+</div>

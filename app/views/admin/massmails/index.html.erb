@@ -1,0 +1,13 @@
+
+<% @massmails.to_a.each do |massmail| %>
+  <tr>
+    <td><%= massmail.email %></td>
+    <td><%= massmail.subject %></td>
+   <td><%= massmail.description %></td>
+   <td><%= massmail.choose_one %></td>
+   <td><%= link_to format_boolean(massmail.status?), {:controller => 'admin/massmails', :action => 'status', :id => massmail.id} %></td>
+</br>
+ </tr>
+<% end %>
+
+</table>

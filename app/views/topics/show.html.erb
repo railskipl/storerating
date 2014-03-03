@@ -1,0 +1,30 @@
+<div class="container" style="margin-top:60px">
+<p id="notice"><%= notice %></p>
+
+<h1><%= @topic.title %></h1>
+
+<div>
+  <%= @topic.description %>
+</div>  
+
+
+<%= link_to 'Edit Topic', edit_forum_topic_path(@forum, @topic) %> |
+
+
+<%= link_to 'Forum Topics', forum_topics_path(@forum) %> |   
+
+<% if @topic.comments.size > 0 %>  
+Comments <%= @topic.comments.count(params[:comment]) %> 
+ <h2>Comments</h2>
+  <% for comment in @topic.comments %>
+    <p><%= comment.content %></p> 
+    <h3><%= comment.name %></h3> 
+  <% end %>
+<% end %>
+
+
+<h2>New Comment</h2>
+<%= render "comments/form" %>
+
+</div>
+

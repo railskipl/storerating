@@ -1,0 +1,5 @@
+<%= form_for [@forum,@topic, Comment.new] do |f| %>
+  <p><%= f.label :name %> <%= f.text_field :name %></p>
+  <p><%= f.label :content %> <%= f.text_area :content, :rows => 10 %></p> 
+  <p><%= f.submit %></p>
+<% end %> 
