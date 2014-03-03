@@ -49,22 +49,25 @@
         </div>
               <div class="span4 offset1">
         
-          <div style="margin-bottom:10px">
-          <a href="#" class="btn btn-primary">Create Events</a>       
-        </div>
+          
         
           <div class="shadow2">
           <h3>Business Events</h3>
           
-          <div class="forum_row">Lorem ipsum dolor sit amet, consec tetur adipis cing elit.</div>
-          <div class="forum_row">Lorem ipsum dolor sit amet, consec tetur adipis cing elit.</div>
-          <div class="forum_row">Lorem ipsum dolor sit amet, consec tetur adipis cing elit.</div>
-          <div class="forum_row">Lorem ipsum dolor sit amet, consec tetur adipis cing elit.</div>
-          </div>
+          <% @events.to_a.each do |event| %>
+
+          <div class="forum_row">
+           <h6><%= event.event_name %></h6>
+           <%= event.description %></br>
+             
+          <% end %>
+        </div>
         
         
         <div class="shadow2" style="margin-top:10px">
-          <h3>Forums</h3>
+         <div style="margin-bottom:10px">
+          <a href="#" class="btn btn-primary">Create Forums</a>       
+        </div>
           
             <div class="forum_row2">Lorem ipsum dolor sit amet, consec tetur adipis cing elit.
             

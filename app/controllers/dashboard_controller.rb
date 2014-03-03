@@ -2,7 +2,7 @@ class DashboardController < ApplicationController
   layout 'application'
 
   def index
-
+    @events = Event.all.to_a
     role_id = Role.find_by(name: "business").id
     user_role = Role.find_by(name: "customer").id
     @business = User.where("role_id" => role_id)
