@@ -1,0 +1,14 @@
+<table>
+<tr>
+	<td>Busines </td>
+	<td>Ratings</td>
+	<td>Status</td>
+</tr>
+<% @rating_flags.each do |r| %>
+<tr>
+	<td><%= r.user.business_name %></td>
+	<td><%= rating_for r.user.business_user %></td>
+	<td><%= link_to format_boolean(r.status?), {:controller => 'admin/rating_flags', :action => 'status', :id => r.id} %></td>
+</tr>
+<% end %>
+</table>

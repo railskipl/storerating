@@ -60,38 +60,8 @@
 
       <div class="pt-table">
         <div class="pt-body">
-
-          <table width="100%" border="1px">
-            <tr>
-              <td>
-                <table width="100%">
-
-
-                  <% @business_user.to_a.each do |b|%>
-                      <tr>
-                        <td><%= link_to b.user.business_name , "/business/#{b.user.id}" %></td>
-                        <% if RatingFlag.find_by(user_id: b.user.id).status %>
-                        <td><%= rating_for b %></td>
-                        <% else %>
-                        <td><%= rating_for b %></td>
-                        <% end %>
-                        <% if current_user.follower_of?(b.user) %>
-                            <td><%= link_to "UnFollow" ,unfollow_path(:business => b.user) %></td>
-                        <% else %>
-                            <td><%= link_to "Follow" ,follow_path(:business => b.user) %></td>
-                        <% end %>
-                      </tr>
-                  <% end %>
-                </table>
-              </td>
-
-              <td>
-               <%= link_to 'New Forum', new_forum_path %> 
-
-              </td>
-            </tr>
-          </table>
-
+		<%= rating_for current_user.business_user %>
+        <%= flag %>
         </div>
 
       </div>
