@@ -1,4 +1,22 @@
-
+<script>
+      $(document).ready(function() {
+        $('.nav-toggle').click(function(){
+          //get collapse content selector
+          var collapse_content_selector = $(this).attr('href');         
+          
+          //make the collapse content to be shown or hide
+          var toggle_switch = $(this);
+          $(collapse_content_selector).toggle(function(){
+            if($(this).css('display')=='none'){
+              toggle_switch.html('Add Comment');//change the button label to be 'Show'
+            }else{
+              toggle_switch.html('Hide Comment');//change the button label to be 'Hide'
+            }
+          });
+        });
+        
+      }); 
+    </script>
 <body>
 
 <div class="navbar navbar-inverse navbar-fixed-top">
@@ -50,10 +68,8 @@
               <div class="span4 offset1">
         
           <div style="margin-bottom:10px">
-          <a href="#" class="btn btn-primary">Create Events</a>       
-        </div>
-        
-          <div class="shadow2">
+          
+        <div class="shadow2">
           <h3>Business Events</h3>
           
           <div class="forum_row">Lorem ipsum dolor sit amet, consec tetur adipis cing elit.</div>
@@ -63,46 +79,34 @@
           </div>
         
         
-        <div class="shadow2" style="margin-top:10px">
-          <h3>Forums</h3>
+        <div class="shadow2" style="margin-top:10px"> 
+          <%=link_to "County Wall", new_forum_path,:class => "btn btn-primary"%> <br/><br/>      
+          <% @forums.each do |forum|%>
+          <div class="forum_row"><h3><%= forum.name%></h3><br/><div><%= forum.content%></div>
           
-            <div class="forum_row2">Lorem ipsum dolor sit amet, consec tetur adipis cing elit.
-            
-              <div class="add_comment">
-              <button href="#collapse1" class="nav-toggle btn btn-warning btn-mini">Add Comment</button>
+        <div class="forum_row2"> 
+          
+             <div class="add_comment">
+              <button href="#collapse<%= forum.id%>" class="nav-toggle btn btn-warning btn-mini">Add Comment</button>
               </div>
-              <div id="collapse1" style="display:none">
+              <div id="collapse<%= forum.id%>" style="display:none">
               <p>
                 <input type="text" value="Name">
                <textarea>Comment</textarea>
                 <input type="button" value="Submit" class="btn">
-              </p>
-            </div>
+              </p> 
             
             </div>
+            </div>   
+          <% end %>
             
 
-            
-            <div class="forum_row2">Lorem ipsum dolor sit amet, consec tetur adipis cing elit.
-            
-              <div class="add_comment">
-              <button href="#collapse2" class="nav-toggle btn btn-warning btn-mini">Add Comment</button>
-              </div>
-              <div id="collapse2" style="display:none">
-              <p>
-                <input type="text" value="Name">
-               <textarea>Comment</textarea>
-                <input type="button" value="Submit" class="btn">
-              </p>
-            </div>
-            
-            </div>
+        
           
         </div>
         </div>
             </div>
-                
-                
+                       
                 
 
 </div>

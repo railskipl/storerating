@@ -1,0 +1,37 @@
+<div class="container" style="margin-top:60px">
+
+<p id="notice"><%= notice %></p>
+
+<h1>
+  <%= @forum.name %>
+</h1>
+
+<div>
+  <%= @forum.content %>
+</div> 
+
+<div>
+  <%= @forum.published_on %>
+</div> 
+
+<div>comments<%= @forum.comments.count(params[:comment]) %></div>
+
+
+<% if @forum.comments.size > 0 %> 
+  <h2>Comments</h2>
+<% for comment in @forum.comments %>
+    <p><%= comment.content %></p> 
+    <h3><%= comment.name %></h3> 
+  <% end %>
+<% end %>
+
+
+<h2>New Comment</h2> 
+<%= render "comments/form" %>
+
+
+<br />
+
+<%= link_to 'Back', forums_path %>
+
+
