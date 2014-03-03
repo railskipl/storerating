@@ -55,11 +55,11 @@
           <h3>Business Events</h3>
           
           <% @events.to_a.each do |event| %>
-
+            <% if event.status == true %>
           <div class="forum_row">
            <h6><%= event.event_name %></h6>
            <%= event.description %></br>
-             
+             <% end %>
           <% end %>
         </div>
         
