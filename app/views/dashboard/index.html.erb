@@ -39,7 +39,7 @@
               <%= rating_for b %>
               <%= flag(b) %>
               <% if current_user.follower_of?(b.user) %>
-                  <%= link_to "UnFollow" ,unfollow_path(:business => b.user) %>
+                  <%= link_to "UnFollow" ,unfollow_path(:business => b.user), :class => "btn btn-warning btn-mini follow_button"  %>
               <% else %>
                   <%= link_to "Follow" ,follow_path(:business => b.user), :class => "btn btn-warning btn-mini follow_button"  %>
               <% end %>
