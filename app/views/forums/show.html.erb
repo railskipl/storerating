@@ -1,26 +1,37 @@
 <div class="container" style="margin-top:60px">
+
 <p id="notice"><%= notice %></p>
 
-<h1><%= @forum.title %></h1>
+<h1>
+  <%= @forum.name %>
+</h1>
 
 <div>
-  <%= @forum.description %>
-</div>
+  <%= @forum.content %>
+</div> 
 
-<h2>Topics</h2>
-<div id="topics">
-  <% @topics.each do |topic| %>  
-<div class="topic">
-    <span class="title"><%= link_to topic.title, forum_topic_path(@forum, topic) %></span></br> 
-    <span class="description"><%= topic.description%></span> 
-  </div>
+<div>
+  <%= @forum.published_on %>
+</div> 
+
+<div>comments<%= @forum.comments.count(params[:comment]) %></div>
+
+
+<% if @forum.comments.size > 0 %> 
+  <h2>Comments</h2>
+<% for comment in @forum.comments %>
+    <p><%= comment.content %></p> 
+    <h3><%= comment.name %></h3> 
   <% end %>
-</div>
-
-<br/>
+<% end %>
 
 
-<%= link_to 'Edit Forum', edit_forum_path(@forum) %> |
-<%= link_to 'New Topic', new_forum_topic_path(@forum) %> |
-<%= link_to 'Back', forums_path %> |
-</div>
+<h2>New Comment</h2> 
+<%= render "comments/form" %>
+
+
+<br />
+
+<%= link_to 'Back', forums_path %>
+
+

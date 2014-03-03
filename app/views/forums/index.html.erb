@@ -1,19 +1,28 @@
 <div class="container" style="margin-top:60px">
+
 <h1>Listing forums</h1>
 
-<div id="forums">
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Content</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
 <% @forums.each do |forum| %>
-  <div class="forum">
-    <span class="title"><%= link_to forum.title, forum_path(forum) %></span> - 
-    <span class="description"><%= forum.description%></span>  
-    <%= link_to 'Destroy', forum, method: :delete, data: { confirm: 'Are you sure?' } %>
-
-  </div>
+  <tr>
+    <td><%= forum.name %></td>
+    <td><%= forum.content %></td>
+    <td><%= link_to 'Show', forum %></td>
+    <td><%= link_to 'Edit', edit_forum_path(forum) %></td>
+    <td><%= link_to 'Destroy', forum, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
 <% end %>
-</div>
+</table>
 
+<br />
 
-<%= link_to 'New Forum', new_forum_path %></br>
-<%= link_to "back",dashboard_index_path%>
-
+<%= link_to 'New Forum', new_forum_path %> 
 </div>
