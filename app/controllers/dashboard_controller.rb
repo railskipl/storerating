@@ -18,7 +18,7 @@ class DashboardController < ApplicationController
     business_user = user.reject {|i| i.role_id == user_role }
     #Fetching business user ids
     user_id ||= []
-    user_id << business_user.map { |e| e.id  }
+    user_id << business_user.map { |e| e.id }
     user_id = user_id.flatten
     #finding business users with user id
     @business_user ||= []

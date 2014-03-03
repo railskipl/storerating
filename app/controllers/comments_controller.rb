@@ -8,6 +8,7 @@ def new
   @comment = Comment.new
 end
   
+
 	
 def create
     @forum = Forum.find(params[:forum_id])

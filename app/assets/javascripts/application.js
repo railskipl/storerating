@@ -13,3 +13,19 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+
+$( document ).ready(function() {
+    $("#follower_email").css("display","none");
+    $("#massmail_choose_one_followers").click(function(e){
+        $("#customer_email").css("display","none");
+        $("#follower_email").css("display","block");
+        $("#customer_email").val("");
+    });
+    $("#massmail_choose_one_samecounty").click(function(e){
+        $("#follower_email").css("display","none");
+        $("#customer_email").css("display","block");
+        $("#follower_email").val("");
+    });
+});
+
+
