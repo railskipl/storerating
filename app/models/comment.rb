@@ -1,11 +1,9 @@
-class Comment
-  include Mongoid::Document  
+class Comment 
+  include Mongoid::Document 
   include Mongoid::Timestamps::Created
-
-  belongs_to :topic 
-
-
+  include Mongoid::MultiParameterAttributes
   field :name, type: String
   field :content, type: String 
- 
+  belongs_to :forum
+  
 end

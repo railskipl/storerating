@@ -9,12 +9,8 @@ Storerating::Application.routes.draw do
   resources  :massmails
   resources  :reviews
 
-
-
- resources :forums do
-    resources :topics do
+  resources :forums do
     resources :comments
-  end 
   end 
 
    get "dashboard/index"
