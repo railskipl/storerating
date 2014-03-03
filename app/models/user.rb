@@ -66,7 +66,7 @@ class User
   field :last_sign_in_ip,    :type => String
 
   has_mongoid_attached_file :photo,:styles => { :thumb => "140x100", :medium => "480x270>", :profile => "130x126"}
-  validates_presence_of :location,:city,:address
+  validates_presence_of :city,:address
   # Association for user model
   has_many :plans
   has_many :accounts

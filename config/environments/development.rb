@@ -1,15 +1,15 @@
 Storerating::Application.configure do
   
-  
-  # config.after_initialize do
-  # ActiveMerchant::Billing::Base.mode = :test
-  # paypal_options = {
-    # :login => "seller_ntest_api1.gmail.com",
-    # :password => "1392122027",
-    # :signature => "AFcWxV21C7fd0v3bYYYRCpSSRl31ABqNIRPCxoa9T4K.DHlBtwg-AKhU"
-  # }
-  # ::STANDARD_GATEWAY = ActiveMerchant::Billing::PaypalGateway.new(paypal_options)
-  # ::EXPRESS_GATEWAY = ActiveMerchant::Billing::PaypalExpressGateway.new(paypal_options)
+#   require "active_merchant"
+#   config.after_initialize do
+#   ActiveMerchant::Billing::Base.mode = :test
+#   paypal_options = {
+#     :login => "seller_ntest_api1.gmail.com",
+#     :password => "1392122027",
+#     :signature => "AFcWxV21C7fd0v3bYYYRCpSSRl31ABqNIRPCxoa9T4K.DHlBtwg-AKhU"
+#   }
+#   ::STANDARD_GATEWAY = ActiveMerchant::Billing::PaypalGateway.new(paypal_options)
+#   ::EXPRESS_GATEWAY = ActiveMerchant::Billing::PaypalExpressGateway.new(paypal_options)
 # end
 
 
