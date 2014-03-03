@@ -6,4 +6,5 @@ class Event
   field :date, type: DateTime
   field :description, type: String
   field :tel, type: String
+  field :status,       type: Boolean
 end
