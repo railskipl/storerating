@@ -14,13 +14,13 @@
       <div class="field">
         <%= f.label :choose_one %><br />
         <% if @level > 2 %>
-            Followers<%= f.radio_button :choose_one, "followers",:disabled => true %>
+            Followers<%= f.radio_button :choose_one, "followers"%>
         <% end %>
         Samecounty<%= f.radio_button :choose_one, "samecounty",:checked => true %>
       </div></br>
       <div class="field">
         <%= f.label :email %><br />
-        <%#= f.select :email, @followers.collect {|x| [x.email, x.email]}, {:prompt => true }, :id => "follower_email", :multiple => true  %>
+        <%= f.select :email, @followers.collect {|x| [x.email, x.email]}, {:prompt => true }, :id => "follower_email", :multiple => true  %>
         <%= f.select :email, @customers.collect {|x| [x.email, x.email]}, {:prompt => true }, :id => "customer_email", :multiple => true  %>
       </div>
       <div class="field">

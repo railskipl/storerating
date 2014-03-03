@@ -8,8 +8,6 @@ class CommentsController < ApplicationController
 
 
 
-   
-
   def count 
   	@forum = forum.find(params[:forum_id])
   	@comment = @forum.comments.count(params[:comment]) 
