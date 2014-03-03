@@ -1,0 +1,6 @@
+<% if @success %>
+jQuery("#body").val("");
+jQuery('#review_load').html("<%= escape_javascript (render :partial => 'business_profile_reviews') %>");
+<% else %>
+alert("Cannot be blank");
+<% end %>

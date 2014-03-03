@@ -20,7 +20,11 @@
   <% end %>
 </div>
 
-
+<div id="flash_messages" style="text-align:center;">
+    <% flash.each do |key, value| %>
+        <%= content_tag(:div, value, :class => "flash #{key}") %>
+    <% end %>
+  </div>
 
 <%= yield %>
 

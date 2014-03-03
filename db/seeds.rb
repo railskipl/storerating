@@ -7,3 +7,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 Role.create(name: 'business')
 Role.create(name: 'customer')
+Role.create(name: 'admin')
+Plan.create(name:'$250',price: 250)
+Plan.create(name:'$500',price: 500)
+Plan.create(name:'$1000',price: 1000)
