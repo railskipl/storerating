@@ -1,0 +1,15 @@
+<table class="table" border="1" cellpadding="10">
+
+<tr>
+<th>Name</th>
+<th colspan=1>Action</th>
+</tr>
+<tr>
+<% @reviews.to_a.each do |review| %>
+
+  <tr>
+    <td><%= review.body %></td>
+    <td><%= link_to 'Destroy', admin_review_path(review), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>

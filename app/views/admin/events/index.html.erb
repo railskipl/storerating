@@ -4,7 +4,7 @@
 <th>Name</th>
 <th>Description</th>
 <th>Telephone</th>
-<th colspan=2>Action</th>
+<th colspan=1>Action</th>
 </tr>
 <tr>
 <% @events.to_a.each do |event| %>
@@ -13,8 +13,7 @@
     <td><%= event.event_name %></td>
     <td><%= event.description %></td>
     <td><%= event.tel %></td>
-    <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-     <td><%= link_to format_boolean(event.status?), {:controller => 'admin/events', :action => 'status', :id => event.id} %></td>
+    <td><%= link_to format_boolean(event.status?), {:controller => 'admin/events', :action => 'status', :id => event.id} %></td>
   </tr>
 <% end %>
 </table>

@@ -37,8 +37,8 @@ class DashboardController < ApplicationController
 
   def follow
     user = User.find_by(_id: params["business"])
-    current_user.follow(user)
-    redirect_to :back
+     current_user.follow(user)
+     redirect_to :back
   end
 
   def unfollow
