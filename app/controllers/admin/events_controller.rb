@@ -10,15 +10,5 @@ def index
 end
 
 
-def status
-	@event = Event.find(params[:id])
-	@event.status = !@event.status?
-    @event.save!
-    if @event.status == true
-      redirect_to dashboard_index_path
-    end
-	redirect_to admin_events_path
-end
-
 
 end

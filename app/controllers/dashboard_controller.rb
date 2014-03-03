@@ -31,8 +31,6 @@ class DashboardController < ApplicationController
 
   def show
     @business = User.find(params[:id])
-    @review = Review.find(params[:id])
-    @replies=review.replies 
   end
 
   def follow

@@ -13,5 +13,4 @@ class Reply
     self.create(:body => body, :user_id => replier ,:replier_id => user.id,:review_id => review)
   end
 
-
 end
