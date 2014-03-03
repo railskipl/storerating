@@ -10,6 +10,7 @@
          
           <div class="nav-collapse collapse">
             <% if current_user.nil? %>
+            <% if admin_signed_in? %>
             <ul class="nav">
             <li><% if controller.controller_name == 'events' %> <%= link_to "Events", admin_events_path, :class=>"active" %> <% else %> <%= link_to "Events", admin_events_path %> <% end %></li>
 
@@ -20,6 +21,7 @@
 </li>
             </ul>
 
+            <% end %>
             <% end %>
 
           </div>
