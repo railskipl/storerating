@@ -1,4 +1,5 @@
 class ReviewsController < ApplicationController
+ before_filter  :authenticate_user!
 
   def index
     @level = get_level current_user.accounts
