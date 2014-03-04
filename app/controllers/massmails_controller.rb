@@ -1,5 +1,5 @@
 class MassmailsController < ApplicationController
-
+ before_filter  :authenticate_user!
 
   def index
     @massmails = Massmail.all

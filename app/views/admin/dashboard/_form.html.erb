@@ -1,0 +1,9 @@
+<%= form_tag admin_suspend_path, :method => 'get' do %>
+  <p><br/>
+    Days : <%= text_field_tag :no, params[:no], :style => "width:15px;height:12px;" %><br/>
+    Reason:<%= text_field_tag :reason, params[:reason] %>
+    <%= hidden_field_tag :user ,user %><br/>
+    <%= submit_tag "Suspend", :name => nil %>
+  </p>
+<% end %>
+

@@ -1,4 +1,6 @@
 class EventsController < ApplicationController
+  before_filter :correct_user
+
   # GET /events
   # GET /events.json
   def index
@@ -81,4 +83,12 @@ class EventsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+private 
+
+def correct_user
+  role = Role.find_by(name: "customer").id
+  redirect_to dashboard_index_path if current_user.role.id == role
+end
+
 end

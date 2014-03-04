@@ -56,6 +56,8 @@ Storerating::Application.routes.draw do
 
  namespace :admin do 
     match '/dashboard' => "dashboard#index"
+    match '/users' => "dashboard#users"
+    match '/suspend' => "dashboard#suspend"
     resources :events
     resources :massmails
     resources :rating_flags

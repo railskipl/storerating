@@ -1,5 +1,6 @@
 class PlansController < ApplicationController
-  
+  before_filter :authenticate_user!
+  before_filter :correct_user
   def index
     @plans = Plan.all
     @account = Account.find_by(user_id: current_user.id ) rescue nil
@@ -74,4 +75,10 @@ class PlansController < ApplicationController
     end
    end  
  end 
+
+ def correct_user
+  role = Role.find_by(name: "customer").id
+  redirect_to dashboard_index_path if current_user.role.id == role
+ end
+
 end 

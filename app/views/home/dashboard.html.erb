@@ -2,7 +2,6 @@
 <div class="container" style="margin-top:60px">
  <% if user_signed_in? %> 
 		 
-		<li><%= link_to "Sign out",destroy_user_session_path,method: :delete %></li>
 		<li><%= link_to 'Events', events_path %></li>
 		<li><%= link_to 'Plans', plans_path %></li>
 		<li><%= link_to 'Massmail', new_massmail_path %></li>
