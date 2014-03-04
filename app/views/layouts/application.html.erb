@@ -15,9 +15,9 @@
   <% if user_signed_in? %>
   <p>
     Signed in as <%= current_user.email %>. Not you? </p>
-    <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
-  
+    <%= link_to "Sign out", destroy_user_session_path, :method => :delete %></br>
   <% end %>
+
 </div>
 
 <div id="flash_messages" style="text-align:center;">

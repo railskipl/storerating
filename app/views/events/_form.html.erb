@@ -19,11 +19,11 @@
   </div>
   <div class="field">
     <%= f.label :date %><br />
-    <%= f.text_field :date %>
+     <%= f.date_select(:date,:start_year => 1950,order: [:day, :month, :year],:id=>"form-field-2") %>
   </div>
   <div class="field">
     <%= f.label :description %><br />
-    <%= f.text_field :description %>
+    <%= f.text_area :description,:id=>"form-field-2",:rows=>"4" ,:style => "width:365px", :maxlength => 2000 %>
   </div>
   <div class="field">
     <%= f.label :tel %><br />
