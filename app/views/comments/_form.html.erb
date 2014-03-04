@@ -1,4 +1,4 @@
-
+<% if  params[:controller] == "dashboard"  %>
 <%= form_for [forum, Comment.new] do |f| %>
 
   <p><%= f.label :name %> <%= f.text_field :name %></p>
@@ -6,4 +6,14 @@
   <p><%= f.label :comment %> <%= f.text_area :content, :rows => 5 %></p>
 
   <p><%= f.submit %></p>
+<% end %>
+<% else %>
+<%= form_for [@forum, Comment.new] do |f| %>
+
+  <p><%= f.label :name %> <%= f.text_field :name %></p>
+
+  <p><%= f.label :comment %> <%= f.text_area :content, :rows => 5 %></p>
+
+  <p><%= f.submit %></p>
+<% end %>
 <% end %>
