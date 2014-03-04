@@ -1,5 +1,5 @@
 class MassmailMailer < ActionMailer::Base
-  default from: "mayuri.kipl@gmail.com"
+  default from: "admin@storerating.com"
 
   # def registration_confirmation(massmail)
   #     @massmail = massmail
