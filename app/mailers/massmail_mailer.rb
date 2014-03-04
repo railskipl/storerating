@@ -14,5 +14,11 @@ def registration_confirmation(massmail)
   end
 
 
+# def registration_confirmation(massmail)
+#     @massmail = massmail
+#     eval(massmail.email).each do |email|
+#       mail(:to => email, :subject => "Registered")
+#     end
+#   end
 
 end
