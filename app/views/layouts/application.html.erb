@@ -16,6 +16,7 @@
   <p>
     Signed in as <%= current_user.email %>. Not you? </p>
     <%= link_to "Sign out", destroy_user_session_path, :method => :delete %></br>
+  <%#= link_to "Settings", edit_user_registration_path(:type => current_user.role.name.capitalize ) %>
   <% end %>
 
 </div>

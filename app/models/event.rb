@@ -8,4 +8,5 @@ class Event
   field :tel, type: Integer
   field :status,       type: Boolean
   validates_numericality_of :tel
+
 end

@@ -29,8 +29,8 @@
  <div><%= f.label :address %><br />
    <%= f.text_area :address,:id=>"form-field-2",:rows=>"4" ,:style => "width:365px", :maxlength => 2000 %>
 
-<div><%= f.label :phone_no %><br />
-  <%= f.text_field :address, :autofocus => true %></div>
+  <div><%= f.label :phone_no %><br />
+  <%= f.text_field :phone_no, :autofocus => true %></div>
 
 
 <%= f.hidden_field :role_id ,:value =>  Role.find_by(name: "customer").id %>
