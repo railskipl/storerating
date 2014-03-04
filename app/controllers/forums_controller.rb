@@ -44,7 +44,7 @@ class ForumsController < ApplicationController
 
     respond_to do |format|
       if @forum.save
-        format.html { redirect_to @forum, notice: 'Forum was successfully created.' }
+        format.html { redirect_to dashboard_index_path, notice: 'Forum was successfully created.' }
         format.json { render json: @forum, status: :created, location: @forum }
       else
         format.html { render action: "new" }
