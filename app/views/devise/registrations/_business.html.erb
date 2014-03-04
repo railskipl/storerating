@@ -266,6 +266,18 @@
                                         No <%= f.radio_button :bdeliver_customer  , "no" %>
 									</div>
 								</div>
+
+
+                     <div class="control-group">
+									<label for="form-field-2" class="control-label"><%= f.label "Is Business listed with BBB"%></label>
+
+									<div class="controls">
+									   
+										Yes <%= f.radio_button :business_with_BBB , "yes" %>
+                                        No <%= f.radio_button :business_with_BBB  , "no" %>
+									</div>
+								</div>
+
 <%= f.hidden_field :role_id ,:value =>  Role.find_by(name: "business").id %>
                  <div class="form-actions">
 
