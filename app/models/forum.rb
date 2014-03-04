@@ -5,7 +5,8 @@ class Forum
 
   has_many :comments
   field :name, type: String  
-  field :published_on, type: DateTime
-  field :content, type: String 
+  field :published_on, type: Date
+  field :content, type: String  
+  validates_presence_of :name, :content
 end
 
