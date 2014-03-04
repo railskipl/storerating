@@ -19,7 +19,7 @@ class User
   attr_accessible :email, :password, :password_confirmation, :remember_me,:zipcode,:city,:location,:phone_no,:vegetarian,:choose_one,:sex,:business_location_shop,:average_per_month,:photo,
                   :business_name,:business_website,:business_facebook,:business_twitter,:year_round_business ,:business_tel,:business_fax,:business_email,
                   :manager_name,:address,:business_established_in,:family_owned_business,:describe_business,:business_offer_op,:fm_onpremises,
-                  :dl_onpremises ,:bdeliver_customer,:business_location,:plan_id,:role_id,:coordinates
+                  :dl_onpremises ,:bdeliver_customer,:business_location,:plan_id,:role_id,:coordinates,:vegan,:user_name
 
   ## Database authenticatable
   field :email,              :type => String, :default => ""
@@ -37,7 +37,7 @@ class User
   field :business_website,              :type => String, :default => ""
   field :business_facebook,              :type => String, :default => ""
   field :business_twitter,              :type => String, :default => ""
-  field :year_round_business,              :type => DateTime, :default => ""
+  field :year_round_business,              :type => String, :default => ""
   field :business_tel,              :type => String, :default => ""
   field :business_fax,              :type => String, :default => ""
   field :manager_name,              :type => String, :default => ""
@@ -53,6 +53,8 @@ class User
   field :business_location,              :type => String, :default => ""
   field :role_id,:type => String
   field :coordinates, :type => Array
+  field :vegan,              :type => String, :default => ""
+  field :user_name,          :type => String, :default => ""
   ## Recoverable
   field :reset_password_token,   :type => String
   field :reset_password_sent_at, :type => Time

@@ -17,6 +17,15 @@
                     </label>
                   </div>
                 </div>
+
+               <div class="control-group">
+                  <label class="control-label" for="form-field-2"><%= f.label :username %></label>
+
+                  <div class="controls">
+                    <%= f.text_field :user_name, :autofocus => true,:id=>"form-field-2" %>
+                  </div>
+                </div>
+
                 <div class="control-group">
                   <label class="control-label" for="form-field-2"><%= f.label :email %></label>
 
@@ -77,12 +86,22 @@
                     No<%= f.radio_button :vegetarian , "no" %>
                   </div>
                 </div>
+
+           <div class="control-group">
+                  <label for="form-field-2" class="control-label"><%= f.label :Vegan %></label>
+
+                  <div class="controls">
+                    Yes <%= f.radio_button :vegan , "yes" %>
+                    No<%= f.radio_button :vegan , "no" %>
+                  </div>
+                </div>
+
                 <div class="control-group">
                   <label for="form-field-2" class="control-label"><%= f.label :choose_one %></label>
                   <div class="controls">
                     Ovo <%= f.radio_button :choose_one  , "ovo" %>
                     Pollo <%= f.radio_button :choose_one  , "pollo" %>
-                    Pollo <%= f.radio_button :choose_one  , "locavo" %>
+                    locavo <%= f.radio_button :choose_one  , "locavo" %>
                   </div>
                 </div>
                 <div class="control-group">
