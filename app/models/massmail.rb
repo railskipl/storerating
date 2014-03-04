@@ -1,6 +1,7 @@
 class Massmail
   include Mongoid::Document
   include Mongoid::MultiParameterAttributes
+  field :business_name, type: String
   field :email, type: String
   field :subject, type: String
   field :description, type: String

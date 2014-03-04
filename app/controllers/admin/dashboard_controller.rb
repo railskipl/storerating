@@ -18,7 +18,9 @@ class Admin::DashboardController < ApplicationController
   	else
   	 u = User.find(user)
   	 u.suspend = number
-  	 u.save
+  	 if u.save
+      MassmailMailer.suspended_confirmation(u).deliver
+    end
   	 redirect_to admin_users_path ,:alert => "#{u.email} suspended for #{number} days"
   	end
   end
