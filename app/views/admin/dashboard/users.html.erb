@@ -1,0 +1,53 @@
+<script>
+      $(document).ready(function() {
+        $('.nav-toggle').click(function(){
+          //get collapse content selector
+          var collapse_content_selector = $(this).attr('href');         
+          
+          //make the collapse content to be shown or hide
+          var toggle_switch = $(this);
+          $(collapse_content_selector).toggle(function(){
+            if($(this).css('display')=='none'){
+              toggle_switch.html('Suspend');//change the button label to be 'Show'
+            }else{
+              toggle_switch.html('Not Suspend');//change the button label to be 'Hide'
+            }
+          });
+        });
+        
+      }); 
+    </script>
+<div class="container" style="margin-top:60px">
+<div class="shadow" style="text-align:center">
+<div>
+
+<p>&nbsp;</p>
+</div>
+
+<table cellpadding = 10>
+<tr>
+	<td>User Name</td>
+	<td>Type</td>
+	<td>Suspend</td>
+</tr>
+<% @users.each do |user| %>
+<tr>
+	<td><%= user.email %></td>
+	<td><%= user.role.name %></td>
+	 <td><div class="add_comment">
+	 		<% if user.suspend.nil? %>
+              <button href="#collapse<%= user.id %>" class="nav-toggle btn btn-warning btn-mini">Suspend</button>
+              </div>
+              <% else %>
+              Suspended for <%= user.suspend %> days..
+             <% end %>
+              <div id="collapse<%= user.id %>" style="display:none">
+              <%= render "admin/dashboard/form" ,:user => user.id %>
+    		 </div></td>
+</tr>
+<% end %>
+</table>
+</div>
+</div>
+
+

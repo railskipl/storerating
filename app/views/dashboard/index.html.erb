@@ -54,8 +54,10 @@
               <%= link_to b.user.business_name , "/business/#{b.user.id}" %>
               <%= b.user.describe_business %>
               <br/>
+              <% if current_user.suspend.nil?  %> 
               <%= rating_for b %>
               <%= flag(b) %>
+              <% end %>
               <% if current_user.follower_of?(b.user) %>
                   <%= link_to "UnFollow" ,unfollow_path(:business => b.user), :class => "btn btn-warning btn-mini follow_button"  %>
               <% else %>
