@@ -19,7 +19,7 @@ class User
   attr_accessible :email, :password, :password_confirmation, :remember_me,:zipcode,:city,:location,:phone_no,:vegetarian,:choose_one,:sex,:business_location_shop,:average_per_month,:photo,
                   :business_name,:business_website,:business_facebook,:business_twitter,:year_round_business ,:business_tel,:business_fax,:business_email,
                   :manager_name,:address,:business_established_in,:family_owned_business,:describe_business,:business_offer_op,:fm_onpremises,
-                  :dl_onpremises ,:bdeliver_customer,:business_location,:plan_id,:role_id,:coordinates,:vegan,:user_name,:business_with_BBB,:suspend
+                  :dl_onpremises ,:bdeliver_customer,:business_location,:plan_id,:role_id,:coordinates,:vegan,:user_name,:business_with_BBB,:suspend,:suspended_reason
 
   ## Database authenticatable
   field :email,              :type => String, :default => ""
@@ -68,6 +68,7 @@ class User
   field :current_sign_in_ip, :type => String
   field :last_sign_in_ip,    :type => String
   field :suspend, :type => Integer
+  field :suspended_reason, :type => String
   has_mongoid_attached_file :photo,:styles => { :thumb => "140x100", :medium => "480x270>", :profile => "130x126"}
   validates_presence_of :city,:address 
   validates :business_website, :presence => {:message => ' cannot be blank.'}, :format => {:with => /\A[www]+[A-Za-z0-9._%+-]+\.[A-Za-z]+\z/, :message => 'INCORRECT FORMAT!'} 

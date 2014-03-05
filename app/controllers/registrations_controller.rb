@@ -37,17 +37,18 @@ class RegistrationsController < Devise::RegistrationsController
     end
   end
 
-
-
-
-
-  def edit
-    if params[:type] == "Business"
-      render "/devise/registrations/business.html.erb"
-    else
-      render "/devise/registrations/new.html.erb"
-    end
-
+protected
+  def after_update_path_for(resource)
+    dashboard_path
   end
+
+  # def edit
+  #   if params[:type] == "Business"
+  #     render "/devise/registrations/business.html.erb"
+  #   else
+  #     render "/devise/registrations/new.html.erb"
+  #   end
+
+  # end
 
 end
