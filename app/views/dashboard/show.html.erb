@@ -1,6 +1,5 @@
 <div class="container" style="margin-top:60px">
   <%= hidden_field_tag "business_user",@business.id %>
- <p><%= notice %></p>
   <table border="1px;">
     <tr>
       <td width="25%">Business Name</td>
@@ -17,9 +16,10 @@
             <p>
               <%= text_area_tag :body,nil,:class=>"comment_tf2",:rows=>"4" ,:style => "width:365px", :maxlength => 2000 %>
             </p>
-            <%= submit_tag "review", :style=>"margin-left:100px",:class=>"submit_btn"%>
+            <%= submit_tag "review", :style=>"margin-left:100px",:class=>"btn"%>
             <% end %></td>
 </tr>
+  </table></br>
 
-  </table>
+  <%= link_to "Back",dashboard_index_path,:class=>"btn" %>
 </div>

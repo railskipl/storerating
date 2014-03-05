@@ -10,11 +10,11 @@
                 <p>
                   <%= text_area_tag :body,nil,:class=>"comment_tf2",:rows=>"4" ,:style => "width:365px", :maxlength => 2000 %>
                 </p>
-                <%= submit_tag "Reply", :style=>"margin-left:100px",:class=>"submit_btn"%>
+                <%= submit_tag "Reply", :style=>"margin-left:100px",:class=>"btn"%>
             <% end %>
         <% end %>
         </br>
     <% end %>
-    <%= link_to "Back",plans_path%>
+    <%= link_to "Back",plans_path,:class=>"btn" %>
   </ul>
 </div>
