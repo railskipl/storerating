@@ -11,7 +11,7 @@ class Admin::DashboardController < ApplicationController
   end
 
   def suspend
-    reason = params[:reason]
+    reason = params["reason"]
   	number =  params["no"].to_i
   	user = params["user"]
   	if number == 0
@@ -19,9 +19,8 @@ class Admin::DashboardController < ApplicationController
   	else
   	 u = User.find(user)
   	 u.suspend = number 
-     u.suspended_reason = reason
   	 if u.save
-      MassmailMailer.suspended_confirmation(u).deliver
+      MassmailMailer.suspended_confirmation(u,reason).deliver
     end
   	 redirect_to admin_users_path ,:alert => "#{u.email} suspended for #{number} days"
   	end
