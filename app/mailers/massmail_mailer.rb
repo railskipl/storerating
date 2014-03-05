@@ -24,7 +24,8 @@ def registration_confirmation(massmail)
 
  def suspended_confirmation(user,reason)   
      @user = user
-      mail(:to => user.email, :subject => "Suspended")
+     @reason = reason
+      mail(:to => user.email, :subject => reason)
   end
 
 end
