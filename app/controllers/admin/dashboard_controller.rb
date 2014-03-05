@@ -11,7 +11,7 @@ class Admin::DashboardController < ApplicationController
   end
 
   def suspend
-    reason = params[:reason]
+    reason = params["reason"]
   	number =  params["no"].to_i
   	user = params["user"]
   	if number == 0
