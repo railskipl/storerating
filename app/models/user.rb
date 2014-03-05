@@ -71,8 +71,8 @@ class User
   field :suspended_reason, :type => String
   has_mongoid_attached_file :photo,:styles => { :thumb => "140x100", :medium => "480x270>", :profile => "130x126"}
   validates_presence_of :city,:address 
-  validates :business_website, :presence => {:message => ' cannot be blank.'}, :format => {:with => /\A[www]+[A-Za-z0-9._%+-]+\.[A-Za-z]+\z/, :message => 'INCORRECT FORMAT!'} 
-  validates :business_tel, :numericality => { :only_integer => true }
+  # validates :business_website, :presence => {:message => ' cannot be blank.'}, :format => {:with => /\A[www]+[A-Za-z0-9._%+-]+\.[A-Za-z]+\z/, :message => 'INCORRECT FORMAT!'} 
+  # validates :business_tel, :numericality => { :only_integer => true }
 
   # Association for user model
   has_many :plans

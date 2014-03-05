@@ -27,7 +27,8 @@ class RegistrationsController < Devise::RegistrationsController
         respond_with resource, :location => after_inactive_sign_up_path_for(resource)
       end
     else
-      if resource.business_name
+      role = Role.find_by(name: "business")
+      if resource.role_id == role.id
         clean_up_passwords resource
         render :business
       else
