@@ -45,7 +45,8 @@ class AccountsController < ApplicationController
 
   # GET /accounts/1/edit
   def edit
-    @account = current_user.account
+    @account = current_user.account 
+    @account = Account.find(params[:id])
   end
 
   # POST /accounts
