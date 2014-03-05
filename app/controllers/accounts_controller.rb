@@ -45,7 +45,7 @@ class AccountsController < ApplicationController
 
   # GET /accounts/1/edit
   def edit
-    @account = current_user.account 
+    #@account = current_user.account  
     @account = Account.find(params[:id])
   end
 
@@ -65,7 +65,9 @@ class AccountsController < ApplicationController
   # PUT /accounts/1.json
 
   def update
-    @account = current_user.account
+    @account = current_user.account 
+    @account = Account.find(params[:id])
+
     if @account.update_stripe
       redirect_to edit_account_path, :success => 'Updated Card.'
     else

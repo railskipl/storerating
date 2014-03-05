@@ -34,7 +34,7 @@ class ForumsController < ApplicationController
 
   # GET /forums/1/edit
   def edit
-    @forum = Forum.find(params[:id])
+    @forum = Forum.find(params[:id]) 
   end
 
   # POST /forums
