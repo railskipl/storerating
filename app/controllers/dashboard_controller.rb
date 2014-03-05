@@ -56,7 +56,7 @@ class DashboardController < ApplicationController
     if params[:body].present? && params[:user_id].present?
       @review = Review.add_review(params[:body],params[:user_id],current_user)
       if @review.save
-        @success = "Review Saved Successfully !!!"
+        @success = "Review Posted Successfully !!!"
       end
     else
       @error = "Please Enter Text In Body !!!"
