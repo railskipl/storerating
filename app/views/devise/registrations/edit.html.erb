@@ -1,16 +1,20 @@
- <div class="container" style="margin-top:60px">
-<!-- <h2>Edit <%= resource_name.to_s.humanize %></h2> -->
-<h2>Accounts</h2>
 
+<% if params[:type] == "Business" %>
+
+    <%= render "business_edit" %>
+<% else %>
+
+ <div class="container" style="margin-top:60px">
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
   <%= devise_error_messages! %>
-  
+
   <div><%= f.label :email %><br />
   <%= f.email_field :email, :autofocus => true %></div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>
+
   <div><%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
   <%= f.password_field :password, :autocomplete => "off" %></div>
 
@@ -19,21 +23,107 @@
 
   <div><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
   <%= f.password_field :current_password %></div>
+   <div class="control-group">
+                  <label class="control-label" for="form-field-2"><%= f.label "Upload Profile Photo"%></label>
+                  <div class="controls">
+                    <label>
+                      <%= f.file_field :photo %>
+                    </label>
+                  </div>
+                </div>
 
-<div><%= f.label "upload profile photo" %><br />
-  <%= f.file_field :photo %></div>
+               <div class="control-group">
+                  <label class="control-label" for="form-field-2"><%= f.label :username %></label>
 
-   <div><%= f.label :zipcode %><br />
-  <%= f.text_field :zipcode, :autofocus => true %></div>
+                  <div class="controls">
+                    <%= f.text_field :user_name, :autofocus => true,:id=>"form-field-2" %>
+                  </div>
+                </div>
 
- <div><%= f.label :address %><br />
-   <%= f.text_area :address,:id=>"form-field-2",:rows=>"4" ,:style => "width:365px", :maxlength => 2000 %>
+                            <div class="control-group">
+                  <label for="form-field-2" class="control-label"><%= f.label " Address"%></label>
 
-  <div><%= f.label :phone_no %><br />
-  <%= f.text_field :phone_no, :autofocus => true %></div>
+                  <div class="controls">
+                  
+                    <%= f.text_area :address,:id=>"form-field-2",:rows=>"4" ,:style => "width:365px", :maxlength => 2000 %>
+                    
+                  </div>
+                </div>
 
+                <div class="control-group">
+                  <label class="control-label" for="form-field-2"><%= f.label :zipcode %></label>
 
-<%= f.hidden_field :role_id ,:value =>  Role.find_by(name: "customer").id %>
+                  <div class="controls">
+                    <%= f.text_field :zipcode,:id=>"form-field-2" %>
+                  </div>
+                </div>
+                <div class="control-group">
+                  <label class="control-label" for="form-field-2"><%= f.label :city %></label>
+                  <div class="controls">
+                    <%= f.text_field :city,:id=>"form-field-2" %>
+                  </div>
+                </div>
+                <div class="control-group">
+                  <label class="control-label" for="form-field-2"><%= f.label :country %></label>
+                  <div class="controls">
+                    <label>
+                      
+                    <%= f.select(:location,Country.all.map {|country| [ country.name,country.name ] } ,:prompt =>"Select Country" ) %>
+                    </label>
+                  </div>
+                </div>
+                <div class="control-group">
+                  <label class="control-label" for="form-field-2"><%= f.label :phone %></label>
+                  <div class="controls">
+                    <%= f.text_field :phone_no,:id=>"form-field-2" %>
+                  </div>
+                </div>
+                <div class="control-group">
+                  <label for="form-field-2" class="control-label"><%= f.label :Vegetarian %></label>
+
+                  <div class="controls">
+                    Yes <%= f.radio_button :vegetarian , "yes" %>
+                    No<%= f.radio_button :vegetarian , "no" %>
+                  </div>
+                </div>
+
+           <div class="control-group">
+                  <label for="form-field-2" class="control-label"><%= f.label :Vegan %></label>
+
+                  <div class="controls">
+                    Yes <%= f.radio_button :vegan , "yes" %>
+                    No<%= f.radio_button :vegan , "no" %>
+                  </div>
+                </div>
+
+                <div class="control-group">
+                  <label for="form-field-2" class="control-label"><%= f.label :choose_one %></label>
+                  <div class="controls">
+                    Ovo <%= f.radio_button :choose_one  , "ovo" %>
+                    Pollo <%= f.radio_button :choose_one  , "pollo" %>
+                    locavo <%= f.radio_button :choose_one  , "locavo" %>
+                  </div>
+                </div>
+                <div class="control-group">
+                  <label for="form-field-2" class="control-label"><%= f.label :sex %></label>
+                  <div class="controls">
+                    Male <%= f.radio_button :sex , "male" %>
+                    Female <%= f.radio_button :sex , "female" %>
+                  </div>
+                </div>
+                <div class="control-group">
+                  <label for="form-field-2" class="control-label"><%= f.label "How may business locations do you shop at in a month"%></label>
+                  <div class="controls">
+                    <%= f.text_field :business_location_shop,:id=>"form-field-2" %>
+                  </div>
+                </div>
+                <div class="control-group">
+                  <label for="form-field-2" class="control-label"><%= f.label "How much do you spend on  average per month at the business"%></label>
+                  <div class="controls">
+                    <%= f.text_field :average_per_month,:id=>"form-field-2" %>
+                  </div>
+                </div>
+                <%= f.hidden_field :role_id ,:value =>  Role.find_by(name: "customer").id %>
 
 
   <div><%= f.submit "Update" %></div>
@@ -44,4 +134,5 @@
 <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete %></p>
 
 <%= link_to "Back", :back %>
+<% end %>
 </div>

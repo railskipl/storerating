@@ -74,6 +74,12 @@ jQuery('#follower_email').change(
         <%= f.select :email, @followers.collect {|x| [x.email, x.email]}, {:prompt => true }, :id => "follower_email", :multiple => true  %>
         <%= f.select :email, @customers.collect {|x| [x.email, x.email]}, {:prompt => true }, :id => "customer_email", :multiple => true  %>
       </div>
+
+     <div class="field">
+        <%= f.label "Businessname" %><br />
+        <%= f.text_field :business_name %>
+      </div>
+      
       <div class="field">
         <%= f.label :subject %><br />
         <%= f.text_field :subject %>

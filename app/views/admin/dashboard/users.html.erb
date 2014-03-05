@@ -39,7 +39,7 @@
               <button href="#collapse<%= user.id %>" class="nav-toggle btn btn-warning btn-mini">Suspend</button>
               </div>
               <% else %>
-              Suspended for <%= user.suspend %> days..
+              Suspended for <%= user.suspend %> days...
              <% end %>
               <div id="collapse<%= user.id %>" style="display:none">
               <%= render "admin/dashboard/form" ,:user => user.id %>
