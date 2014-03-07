@@ -7,12 +7,11 @@ def index
  @events=Event.all
 end
 
-
  def status
 	@event = Event.find(params[:id])
 	@event.status = !@event.status?
     @event.save!
-    redirect_to :back 
+    redirect_to :back
    end
 
 

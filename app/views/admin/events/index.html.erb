@@ -1,4 +1,3 @@
-
 <table class="table" border="1" cellpadding="10">
 
 <tr>
@@ -17,7 +16,7 @@
     <td><%= event.tel %></td>
 <!-- 
     <td><%#= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
-     <td><%= link_to format_boolean(event.status?), {:controller => 'admin/events', :action => 'status', :id => event.id} %></td>
+   <td><%= link_to format_boolean(event.status?), {:controller => 'admin/events', :action => 'status', :id => event.id} %></td>
 
   </tr>
 <% end %>

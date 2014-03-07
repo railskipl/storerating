@@ -1,6 +1,7 @@
 <% if @success %>
 jQuery("#body").val("");
-jQuery('#review_load').html("<%= escape_javascript (render :partial => 'business_profile_reviews') %>");
+// jQuery('#review_load').html("<%= escape_javascript (render :partial => 'business_profile_reviews') %>");
+jQuery("#flash_messages").addClass("success").text("Review Posted Successfully !!!")
 <% else %>
 alert("Cannot be blank");
 <% end %>
